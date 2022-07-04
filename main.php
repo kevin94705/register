@@ -8,3 +8,6 @@
 <form action="sign_up.php" method="post">
     <input type="submit" value="註冊"></p>
 </form>
+<?php 
+
+?>

@@ -1,6 +1,7 @@
 <?php
 
 date_default_timezone_set("Asia/Taipei");
+
 if (empty($_POST)){
     /* 轉接頁面 */
     header('Location: http://127.0.0.1/main.php');
@@ -43,8 +44,11 @@ if ($rowcount==1) {
         echo "email: ". $data_array['email']."<p>";
         echo "最後登入時間: ". $data_array['last_login_time']."<p>";
         ?>
-        <form action="main.php" method="get">
-            <input type="submit" value="返回首頁">
+
+
+        <form action="index.php" method="post" name="next_page">
+            <input type="hidden" id='login_acc' name="acc" value="<?php echo $acc; ?>">
+            <p><input type="submit" value="查看公佈欄"></p>
         </from>
 
         <?php
@@ -54,8 +58,9 @@ else{
     echo "失敗";
     ?>
     <form action="main.php" method="get">
-        <p><input type="submit" value="返回首頁"></p>
+        <input type="submit" value="返回首頁">
     </from>
+
     <?php
 }
 mysqli_close($conn);
